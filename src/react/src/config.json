@@ -1,0 +1,6 @@
+{
+    "SERVERS": [
+        "/api"
+    ],
+    "REFRESH_TIME_MS": 10000
+}

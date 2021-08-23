@@ -1,0 +1,12 @@
+# Node files
+node_modules
+npm-debug.log
+
+# React files
+build
+
+# Project files
+test/*.txt
+*.env
+
+!/**/.gitkeep

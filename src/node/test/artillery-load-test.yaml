@@ -1,0 +1,23 @@
+config:
+  target: "http://127.0.0.1:1234"
+  phases:
+    - duration: 120
+      arrivalRate: 10
+      maxVusers: 50
+  environments:
+    production:
+      target: "https://seep-server.herokuapp.com"
+      phases:
+        - duration: 300
+          arrivalRate: 20
+          maxVusers: 100
+
+scenarios:
+  - name: "Ping"
+    flow:
+      - head:
+          url: "/"
+  - name: "Gameplay"
+    flow:
+      - post:
+          url: "/game"

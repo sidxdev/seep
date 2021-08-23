@@ -1,0 +1,33 @@
+/* Prevent swipe down to refresh on mobile */
+
+body {
+  overscroll-behavior: contain;
+}
+
+/* Dont decorate links in buttons */
+
+button > a {
+  color: white;
+  text-decoration: none !important;
+}
+
+/* Middle align segments */
+.center-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.center-items > * {
+  min-width: 100%;
+}
+
+/* Playing cards */
+.ui.cards > .card {
+  margin: .15em !important;
+  width: 15% !important;
+}
+
+.card-selected {
+  border: dashed !important;
+}

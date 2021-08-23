@@ -1,0 +1,55 @@
+@host= 127.0.0.1
+@port = 1234
+@server=http://{{host}}:{{port}}
+@gameId = 970706
+@playerId = 8d726ccc-bfb9-4f11-8a55-5a78c131af71
+@adminKey = 123456
+
+
+### Create a new Game
+POST {{server}}/game
+
+### Join a Game
+POST {{server}}/game/{{gameId}}/join
+
+### Call first house
+POST  {{server}}/game/{{gameId}}/house
+content-type: application/json
+
+{
+    "playerId": "{{playerId}}",
+    "house": 11
+}
+
+### Play turn
+POST  {{server}}/game/{{gameId}}/play
+content-type: application/json
+
+{
+    "playerId": "{{playerId}}",
+    "turn": {
+        "play": {
+            "suit": "SPADES",
+            "number": 11
+        },
+        "intent": "PICK",
+        "target" : [{
+            "type": "CARD",
+            "suit": "SPADES",
+            "number": 10
+        }]
+    }
+}
+
+### Get game status (admin)
+GET {{server}}/game/{{gameId}}
+x-admin-key: {{adminKey}}
+
+### Get game status (player)
+GET {{server}}/game/{{gameId}}/status/{{playerId}}
+
+### Get server status
+GET {{server}}/status
+
+### Ping Server
+HEAD {{server}}

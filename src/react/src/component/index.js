@@ -1,0 +1,6 @@
+export * from './About'
+export * from './HeaderMenu'
+export * from './Home'
+export * from './Page404'
+export * from './Game'
+export { default as JoinGame } from './JoinGame'

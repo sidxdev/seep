@@ -1,0 +1,17 @@
+ports:
+  - port: 8000
+    onOpen: open-browser
+
+tasks:
+  - init: |
+      docker build . -t seep
+    command: |
+      docker run -p 8000:8000 -d --restart unless-stopped --name seep seep
+github:
+  prebuilds:
+    master: true
+    branches: false
+
+vscode:
+  extensions:
+    - "ms-azuretools.vscode-docker"
